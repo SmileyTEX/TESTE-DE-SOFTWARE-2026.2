@@ -16,13 +16,13 @@ O Therac-25 era um acelerador linear de radioterapia de ponta, controlado por so
 
 ---
 
-## 2. Foguete Ariane 5 - Voo 501 (1996): O Erro de Conversão de 370 Milhões de Dólares
+## 2. Knight Capital Group (2012): O Pesadelo do Algoritmo de Negociação
 
-O projeto do foguete europeu Ariane 5 levou uma década para ser desenvolvido, com um custo na casa dos bilhões para a Agência Espacial Europeia (ESA). Seu aguardado voo inaugural ocorreu em 4 de junho de 1996, carregando um conjunto de satélites científicos.
+A Knight Capital era uma das maiores empresas de negociação de alta frequência (*high-frequency trading*) dos EUA. Em agosto de 2012, a empresa implementou uma atualização de software em seus roteadores para se adequar a um novo formato de negociação na Bolsa de Valores de Nova York.
 
-*   **O Bug:** Ocorreu um *integer overflow* (estouro numérico) no código do Sistema de Referência Inercial. O software (que havia sido reaproveitado do foguete anterior, o Ariane 4) tentou converter um número de ponto flutuante de 64 bits em um número inteiro com sinal de 16 bits. O valor da aceleração do Ariane 5 era muito maior que a do Ariane 4 e excedeu o limite máximo que os 16 bits podiam armazenar.
-*   **A Consequência Técnica:** O computador de navegação travou e repassou dados de diagnóstico de erro como se fossem dados reais de voo. O sistema principal interpretou isso como um desvio extremo de rota e ordenou uma correção abrupta nos motores.
-*   **O Impacto na Sociedade:** Apenas 37 segundos após o lançamento, as intensas forças aerodinâmicas despedaçaram o foguete, acionando seu mecanismo de autodestruição. O prejuízo imediato foi de aproximadamente 370 milhões de dólares entre a carga e o lançador, tornando-se um dos bugs mais notórios e caros da engenharia de software.
+*   **O Bug:** Durante a implantação, um dos oito servidores da empresa não recebeu o código atualizado. Para agravar o erro de *deploy*, os programadores reutilizaram uma "flag" (sinalizador de código) que, no sistema antigo, servia para ativar um algoritmo de testes morto chamado *Power Peg* — uma função criada anos antes apenas para gerar volume artificial comprando na alta e vendendo na baixa.
+*   **A Consequência Técnica:** Quando o novo sistema entrou no ar, ele enviou a "flag" para todos os servidores. O servidor desatualizado interpretou o comando ativando o *Power Peg* diretamente no ambiente de produção real, enviando milhões de ordens sem travas de risco.
+*   **O Impacto na Sociedade:** Em apenas 45 minutos, o algoritmo descontrolado realizou mais de 4 milhões de negociações em 154 ações diferentes. O sistema perdeu impressionantes 460 milhões de dólares (cerca de 10 milhões de dólares por minuto). A falha quase levou a gigante financeira à falência instantânea e causou pânico momentâneo na bolsa, transformando-se no maior estudo de caso sobre a importância de testes de *deploy* e DevOps.
 
 ---
 
